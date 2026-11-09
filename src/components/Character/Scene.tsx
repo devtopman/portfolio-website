@@ -61,6 +61,27 @@ const Scene = () => {
           mixer = animations.mixer;
           let character = gltf.scene;
           setChar(character);
+          // Realistic look: the model shares one grey material across skin and
+          // clothes, so clone it per mesh and give each part its own color.
+          const looks: Record<string, [string, number]> = {
+            Ear: ["#c98f6b", 0.6],
+            Hand: ["#c98f6b", 0.6],
+            Neck: ["#c98f6b", 0.6],
+            Plane007: ["#c98f6b", 0.6],
+            BODYSHIRT: ["#2f3b52", 0.85],
+            Pant: ["#1e232d", 0.8],
+            Shoe: ["#14161a", 0.5],
+          };
+          character.traverse((child: any) => {
+            if (!child.isMesh || Array.isArray(child.material)) return;
+            const key = Object.keys(looks).find((k) => child.name.startsWith(k));
+            if (!key) return;
+            const mat = (child.material as THREE.MeshStandardMaterial).clone();
+            mat.color.set(looks[key][0]);
+            mat.roughness = looks[key][1];
+            mat.metalness = 0;
+            child.material = mat;
+          });
           scene.add(character);
           headBone = character.getObjectByName("spine006") || null;
           screenLight = character.getObjectByName("screenlight") || null;
@@ -85,7 +106,7 @@ const Scene = () => {
       let debounce: number | undefined;
       const onTouchStart = (event: TouchEvent) => {
         const element = event.target as HTMLElement;
-        debounce = setTimeout(() => {
+        debounce = window.setTimeout(() => {
           element?.addEventListener("touchmove", (e: TouchEvent) =>
             handleTouchMove(e, (x, y) => (mouse = { x, y }))
           );

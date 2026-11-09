@@ -3,7 +3,7 @@ import { RGBELoader } from "three-stdlib";
 import { gsap } from "gsap";
 
 const setLighting = (scene: THREE.Scene) => {
-  const directionalLight = new THREE.DirectionalLight(0xc7a9ff, 0);
+  const directionalLight = new THREE.DirectionalLight(0xe4d2ff, 0);
   directionalLight.intensity = 0;
   directionalLight.position.set(-0.47, -0.32, -1);
   directionalLight.castShadow = true;

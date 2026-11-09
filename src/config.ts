@@ -3,6 +3,8 @@ export const config = {
         name: "Redoyanul",
         fullName: "Redoyanul Haque",
         title: "AI & Full-Stack Developer",
+        role1: "AI Engineer",
+        role2: "Full-Stack Developer",
         description: "AI & Full-Stack Developer building intelligent systems and modern web applications. Passionate about machine learning, deep learning, and creating next-gen autonomous agents."
     },
     social: {
@@ -165,6 +167,9 @@ export const config = {
             link: ""
         }
     ],
+    resume: {
+        url: ""
+    },
     contact: {
         email: "redoyanul1234@gmail.com",
         github: "https://github.com/red1-for-hek",

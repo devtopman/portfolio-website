@@ -27,3 +27,10 @@ dist-ssr
 backup/
 .env
 redoxchess-engine/
+# local dev admin data
+.dev-content.json
+public/images/uploads/
+
+# generated temp files
+*.tmp.*
+vite.config.ts.timestamp-*.mjs

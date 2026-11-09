@@ -81,7 +81,21 @@ const SocialIcons = () => {
           </a>
         </span>
       </div>
-      <a className="resume-button" href="#">
+      <a
+        className="resume-button"
+        href={
+          config.resume?.url
+            ? // Vercel Blob serves a forced download with ?download=1
+              config.resume.url.includes("blob.vercel-storage.com")
+              ? `${config.resume.url}?download=1`
+              : config.resume.url
+            : "#"
+        }
+        download={config.resume?.url ? `${config.developer.fullName.replace(/\s+/g, "-")}-CV.pdf` : undefined}
+        target={config.resume?.url ? "_blank" : undefined}
+        rel="noopener noreferrer"
+        data-cursor="disable"
+      >
         <HoverLinks text="RESUME" />
         <span>
           <TbNotes />

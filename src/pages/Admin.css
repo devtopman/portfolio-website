@@ -1,0 +1,34 @@
+/* body is overflow:hidden site-wide, so the admin scrolls inside its own container */
+.adm, .adm-login { position: fixed; inset: 0; overflow-y: auto; overflow-x: hidden; background: #0b0a10; color: #eae8f0; font-family: inherit; }
+.adm *, .adm-login * { box-sizing: border-box; }
+.adm-main { padding-bottom: 120px !important; }
+.adm-login { display: flex; flex-direction: column; gap: 12px; align-items: center; justify-content: center; }
+.adm-login input { padding: 10px 14px; width: 260px; border-radius: 8px; border: 1px solid #3a3550; background: #15131d; color: inherit; }
+.adm-login a, .adm a { color: #b79cff; text-decoration: none; }
+.adm-err { color: #ff7a7a; }
+.adm button { cursor: pointer; }
+.adm-login button, .adm button { padding: 8px 14px; border-radius: 8px; border: 1px solid #3a3550; background: #1b1827; color: inherit; }
+.adm-bar { position: sticky; top: 0; z-index: 5; display: flex; gap: 16px; align-items: center; padding: 12px 24px; background: #100e17; border-bottom: 1px solid #272236; flex-wrap: wrap; }
+.adm-bar nav { display: flex; gap: 6px; flex: 1; flex-wrap: wrap; }
+.adm-bar nav .on, .adm aside .on { background: #4b2f94; border-color: #7b55e0; }
+.adm-status { font-size: 14px; opacity: 0.8; }
+.adm-save { background: #7b55e0 !important; border-color: #7b55e0 !important; font-weight: 600; }
+.adm-save:disabled { opacity: 0.5; }
+.adm-main { padding: 24px; max-width: 1100px; margin: 0 auto; }
+.adm-split { display: grid; grid-template-columns: 240px 1fr; gap: 24px; }
+.adm aside { display: flex; flex-direction: column; gap: 6px; align-self: start; }
+.adm aside button { text-align: left; }
+.adm aside small { opacity: 0.6; display: block; }
+.adm-add { border-style: dashed !important; }
+.adm section { display: flex; flex-direction: column; gap: 14px; }
+.adm-one { max-width: 720px; }
+.adm-field { display: flex; flex-direction: column; gap: 6px; }
+.adm-field span { font-size: 13px; text-transform: capitalize; opacity: 0.75; }
+.adm-field small { opacity: 0.55; }
+.adm-field input, .adm-field textarea { padding: 10px 12px; border-radius: 8px; border: 1px solid #3a3550; background: #15131d; color: inherit; font: inherit; }
+.adm-row { display: flex; gap: 8px; flex-wrap: wrap; }
+.adm-del { margin-left: auto; color: #ff8a8a; border-color: #6a2b2b !important; }
+.adm-note { font-size: 13px; opacity: 0.6; margin: 0; }
+.adm-thumb { max-width: 260px; border-radius: 8px; border: 1px solid #3a3550; }
+.adm fieldset { border: 1px solid #272236; border-radius: 10px; padding: 16px; display: flex; flex-direction: column; gap: 14px; }
+@media (max-width: 760px) { .adm-split { grid-template-columns: 1fr; } }
